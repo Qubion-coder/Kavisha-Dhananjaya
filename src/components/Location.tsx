@@ -3,9 +3,9 @@ import { motion } from 'motion/react';
 import { MapPin, Navigation, Compass, Map } from 'lucide-react';
 
 export const Location: React.FC = () => {
-  const venueAddress = "Senuri Grand Castello, Divulapitiya";
-  const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15822.464624388344!2d80.0328!3d7.2289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNyAxMyczMy4wIk4gODDCsDAxJzU4LjEiRQ!5e0!3m2!1sen!2slk!4v1711000000000!5m2!1sen!2slk`;
-  const liveLocationUrl = "https://www.google.com/maps/search/Senuri+Grand+Castello+Divulapitiya";
+  const venueAddress = "Tree of Life Nature Resort, Yahalatenna, Kandy";
+  const mapUrl = `https://maps.google.com/maps?q=Hotel+Tree+of+Life+Nature+Resort,+Kandy&hl=en&z=15&output=embed`;
+  const liveLocationUrl = "https://maps.app.goo.gl/AJ1xzTMaBdTF2Mrc8";
 
   return (
     <div className="max-w-[85rem] mx-auto px-6 relative py-12">
@@ -18,11 +18,11 @@ export const Location: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px", amount: 0.1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="w-full lg:w-[45%] z-20"
         >
-          <div className="bg-white/90 backdrop-blur-2xl p-10 sm:p-14 lg:p-16 rounded-[2.5rem] shadow-[0_30px_60px_rgba(176,137,104,0.15)] border border-brand-beige/30 lg:translate-x-12 relative overflow-hidden group">
+          <div className="bg-white/90 backdrop-blur-md p-10 sm:p-14 lg:p-16 rounded-[2.5rem] shadow-[0_30px_60px_rgba(176,137,104,0.15)] border border-brand-beige/30 lg:translate-x-12 relative overflow-hidden group">
             
             {/* Elegant top border gradient */}
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-champagne via-brand-beige to-brand-beige-deep" />
@@ -45,8 +45,8 @@ export const Location: React.FC = () => {
                   <MapPin className="text-brand-beige-deep w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-2xl font-serif text-stone-800 mb-1">Senuri Grand Castello</p>
-                  <p className="text-[11px] uppercase tracking-[0.2em] font-medium text-stone-400 leading-relaxed mb-6">Divulapitiya</p>
+                  <p className="text-2xl font-serif text-stone-800 mb-1">Tree of Life Nature Resort</p>
+                  <p className="text-[11px] uppercase tracking-[0.2em] font-medium text-stone-400 leading-relaxed mb-6">Yahalatenna, Kandy</p>
                   
                   <p className="text-stone-500/90 italic font-serif text-lg leading-relaxed max-w-sm mb-10 pl-4 border-l-[1.5px] border-brand-beige/40">
                     "A serene and elegant setting where we will begin our new chapter together."
@@ -74,7 +74,7 @@ export const Location: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px", amount: 0.1 }}
           transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
           className="w-full lg:w-[65%] h-[500px] sm:h-[600px] lg:h-[700px] relative z-10"
         >
@@ -85,7 +85,7 @@ export const Location: React.FC = () => {
             <div className="absolute inset-0 bg-brand-beige/10 mix-blend-multiply pointer-events-none z-20 group-hover/map:opacity-0 transition-opacity duration-1000" />
             
             <iframe
-              title="Senuri Grand Castello Location"
+              title="Tree of Life Nature Resort Location"
               src={mapUrl}
               width="100%"
               height="100%"

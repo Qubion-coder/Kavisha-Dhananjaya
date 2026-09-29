@@ -9,7 +9,7 @@ import { CoupleDetails } from './components/CoupleDetails';
 import { CeremonyDetails } from './components/CeremonyDetails';
 import { Location } from './components/Location';
 import { Timeline } from './components/Timeline';
-import { Gallery } from './components/Gallery';
+
 import { Countdown } from './components/Countdown';
 import { RSVPForm } from './components/RSVPForm';
 import { WishesSection } from './components/WishesSection';
@@ -20,7 +20,7 @@ export default function App() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    audioRef.current = new Audio('/paulyudin-wedding-485932.mp3');
+    audioRef.current = new Audio('/Christina_Perri_-_Thousand_years_(mp3.pm) (6).mp3');
     audioRef.current.loop = true;
     audioRef.current.volume = 0.3;
     audioRef.current.preload = 'auto';
@@ -61,10 +61,10 @@ export default function App() {
   }
 
   // Set the wedding date for the countdown
-  const weddingDate = new Date("2026-09-19T08:30:00");
+  const weddingDate = new Date("2026-10-29T09:00:00");
 
   return (
-    <div className="font-sans text-stone-800 bg-brand-ivory overflow-hidden selection:bg-brand-beige-deep/20">
+    <div className="font-sans text-stone-800 bg-brand-ivory selection:bg-brand-beige-deep/20" style={{ overflowX: 'clip' }}>
       <Toaster position="top-center" />
       
       {/* Premium Floating Music Toggle */}
@@ -96,9 +96,7 @@ export default function App() {
         <Timeline />
       </div>
 
-      <div className="py-24 sm:py-32 bg-white relative">
-        <Gallery />
-      </div>
+
 
       <div className="py-24 sm:py-32 bg-gradient-to-b from-white to-brand-ivory relative">
           <div className="max-w-6xl mx-auto px-6 mb-16 text-center">
@@ -121,11 +119,21 @@ export default function App() {
       <footer className="py-12 bg-white border-t border-brand-beige/20 text-center relative overflow-hidden mt-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-beige/10 blur-[80px] rounded-full pointer-events-none" />
         <Heart className="w-6 h-6 mx-auto mb-6 text-brand-beige-deep fill-brand-beige/20" />
-        <p className="font-display text-4xl sm:text-5xl text-stone-800 mb-2">Samadhi & Madhawa</p>
+        <p className="font-display text-4xl sm:text-5xl text-stone-800 mb-2">Kavisha & Dhananjaya</p>
         <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.4em] font-sans text-stone-400 font-semibold block mb-8">
-          September 19, 2026
+          October 29, 2026
         </span>
-
+        <p className="text-stone-500 text-xs font-sans tracking-wider mt-4">
+          Want a beautiful wedding website like this? Create yours with{' '}
+          <a
+            target="_blank"
+            rel="noreferrer"
+            className="text-brand-beige-deep hover:text-stone-800 font-semibold underline transition-colors"
+            href="https://wa.me/94707819074"
+          >
+            invitemint
+          </a>
+        </p>
       </footer>
     </div>
   );

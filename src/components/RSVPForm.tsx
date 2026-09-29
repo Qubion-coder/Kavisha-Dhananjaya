@@ -6,20 +6,31 @@ export const RSVPForm: React.FC = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     guests: '1',
-    dietaryNotes: '',
   });
+  const [attendanceValue, setAttendanceValue] = useState('Yes');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  // Google Apps Script Web App URL
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzbKYTP9NfF8UAgqvlNmaEFsuYJZM0BuLyLQ--nCNMINUN2CFevMqhw0v9z0bOKt-Je9w/exec';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
 
     try {
-      // Simulate network request latency
-      await new Promise(resolve => setTimeout(resolve, 800));
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: new URLSearchParams({
+          type: 'rsvp',
+          fullName: formData.fullName,
+          guests: formData.guests,
+          attendance: attendanceValue
+        })
+      });
 
       setStatus('success');
-      setFormData({ fullName: '', guests: '1', dietaryNotes: '' });
+      setFormData({ fullName: '', guests: '1' });
     } catch (error) {
       console.error('Error sending RSVP: ', error);
       setStatus('error');
@@ -34,9 +45,9 @@ export const RSVPForm: React.FC = () => {
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px", amount: 0.1 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="glass p-10 sm:p-14 lg:p-16 rounded-[3rem] border border-white/40 shadow-[0_30px_60px_rgba(176,137,104,0.1)] relative overflow-hidden bg-white/60 backdrop-blur-3xl lg:flex items-center gap-16"
+        className="glass p-10 sm:p-14 lg:p-16 rounded-[3rem] border border-white/40 shadow-[0_30px_60px_rgba(176,137,104,0.1)] relative overflow-hidden bg-white/60 backdrop-blur-md lg:flex items-center gap-16"
       >
         {/* Soft top border line */}
         <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-champagne via-brand-beige-deep/80 to-brand-champagne" />
@@ -59,11 +70,7 @@ export const RSVPForm: React.FC = () => {
           <p className="text-stone-500/90 font-serif text-lg leading-relaxed mb-6">
             Your presence means the world to us. Please kindly let us know if you will be able to join our celebration.
           </p>
-          <div className="mt-4 mb-6 bg-brand-champagne/50 px-6 py-4 rounded-2xl border border-brand-beige/20">
-            <p className="text-stone-600 font-sans text-sm font-medium">RSVP Contact</p>
-            <p className="text-stone-800 font-serif text-lg mt-1">Suresh Shanaka</p>
-            <a href="tel:+94776341985" className="text-brand-beige-deep font-sans text-base font-semibold hover:underline">+94 776341985</a>
-          </div>
+
           <div className="w-12 h-[1px] bg-brand-beige/50 mx-auto lg:mx-0" />
         </div>
 
@@ -132,26 +139,31 @@ export const RSVPForm: React.FC = () => {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-[10px] uppercase tracking-[0.2em] font-bold text-stone-500 mb-3 ml-2">Dietary Notes (Optional)</label>
-                  <textarea
-                    placeholder="We'd love to know if you have any allergies..."
-                    className="w-full bg-white/80 px-6 py-4 rounded-[2rem] border border-stone-200/60 focus:ring-2 focus:ring-brand-beige/30 focus:border-brand-beige-deep/40 outline-none transition-all duration-300 h-28 resize-none font-serif italic text-lg shadow-inner placeholder:text-stone-300"
-                    value={formData.dietaryNotes}
-                    onChange={(e) => setFormData({ ...formData, dietaryNotes: e.target.value })}
-                  />
-                </div>
 
-                <div className="pt-4">
+
+                <div className="pt-4 flex flex-col sm:flex-row gap-4">
                   <button
+                    onClick={() => setAttendanceValue('Yes')}
                     disabled={status === 'loading'}
                     type="submit"
-                    className="w-full bg-stone-800 text-brand-champagne py-5 rounded-full font-sans tracking-[0.3em] font-bold text-[11px] uppercase hover:bg-stone-900 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.15)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.25)] active:scale-[0.98] flex items-center justify-center gap-3 disabled:opacity-70"
+                    className="flex-1 bg-stone-800 text-brand-champagne py-4 sm:py-5 rounded-full font-sans tracking-[0.3em] font-bold text-[10px] sm:text-[11px] uppercase hover:bg-stone-900 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.15)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.25)] active:scale-[0.98] flex items-center justify-center gap-3 disabled:opacity-70"
                   >
-                    {status === 'loading' ? (
+                    {status === 'loading' && attendanceValue === 'Yes' ? (
                       <Loader2 className="w-5 h-5 animate-spin" />
                     ) : (
-                      'Confirm Attendance'
+                      'Joyfully Accept'
+                    )}
+                  </button>
+                  <button
+                    onClick={() => setAttendanceValue('No')}
+                    disabled={status === 'loading'}
+                    type="submit"
+                    className="flex-1 bg-transparent border border-stone-300 text-stone-600 py-4 sm:py-5 rounded-full font-sans tracking-[0.3em] font-bold text-[10px] sm:text-[11px] uppercase hover:bg-stone-50 transition-all duration-300 active:scale-[0.98] flex items-center justify-center gap-3 disabled:opacity-70"
+                  >
+                    {status === 'loading' && attendanceValue === 'No' ? (
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                    ) : (
+                      'Regretfully Decline'
                     )}
                   </button>
                 </div>

@@ -32,6 +32,7 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
         .scene {
           position: relative;
           min-height: 100vh;
+          min-height: 100dvh;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -40,6 +41,7 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
           perspective: 1500px;
           overflow: hidden;
           font-family: "Cormorant Garamond", serif;
+          -webkit-overflow-scrolling: touch;
         }
 
         /* Ambient floating orbs */
@@ -416,9 +418,9 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
               </div>
 
               <h1 className="text-names">
-                Samadhi
+                Kavisha
                 <span className="text-ampersand">&</span>
-                Madhawa
+                Dhananjaya
               </h1>
 
               <div className="divider">
@@ -429,9 +431,9 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
 
               <div className="text-details">
                 Request the honour of your presence<br />
-                <span className="text-date">Saturday 19 September 2026 At 8:30 AM</span>
-                <span className="text-church">St. Antony's Church</span><br />
-                Kongodamulla, Katana
+                <span className="text-date">Thursday 29 October 2026 At 9:00 AM</span>
+                <span className="text-church">Tree of Life Nature Resort</span><br />
+                Yahalatenna, Kandy
               </div>
             </div>
           </div>

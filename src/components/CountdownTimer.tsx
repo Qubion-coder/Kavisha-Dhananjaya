@@ -10,8 +10,8 @@ export function CountdownTimer() {
   }>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    // September 19, 2026
-    const targetDate = new Date('2026-09-19T08:30:00').getTime();
+    // October 29, 2026
+    const targetDate = new Date('2026-10-29T09:00:00').getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();

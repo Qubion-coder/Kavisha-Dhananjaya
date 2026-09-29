@@ -3,11 +3,10 @@ import { motion } from 'motion/react';
 import { Heart, Music, Camera, Utensils, PartyPopper } from 'lucide-react';
 
 const events = [
-  { time: '08:00 AM', title: 'Guest Arrival at Church', icon: Heart, desc: 'Welcoming our loved ones to St. Antony\'s Church, Kongodamulla' },
-  { time: '08:30 AM', title: 'Church Ceremony', icon: Music, desc: 'The sacred exchange of vows at the church' },
-  { time: '12:00 PM', title: 'Wedding Ceremony', icon: PartyPopper, desc: 'Welcome to Senuri Grand Castello, Divulapitiya' },
-  { time: '01:00 PM', title: 'Wedding Lunch', icon: Utensils, desc: 'A grand celebratory lunch' },
-  { time: '02:30 PM', title: 'Cake Cutting', icon: Camera, desc: 'Sweet moments and photographs' },
+  { time: '09:00 AM', title: 'Arrival', icon: Heart, desc: 'Welcome to Tree of Life Nature Resort' },
+  { time: '09:34 AM', title: 'Poruwa Ceremony', icon: PartyPopper, desc: 'The traditional Sri Lankan wedding ceremony' },
+  { time: '12:30 PM', title: 'Wedding Lunch & Reception', icon: Utensils, desc: 'A grand celebration with our loved ones' },
+  { time: '03:36 PM', title: 'Going Away', icon: Camera, desc: 'Farewell as we begin our new journey' },
 ];
 
 export const Timeline: React.FC = () => {
@@ -31,7 +30,7 @@ export const Timeline: React.FC = () => {
               key={event.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px", amount: 0.1 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               className={`flex flex-col md:flex-row items-center gap-8 ${
                 index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'

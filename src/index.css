@@ -23,12 +23,30 @@
   color: #292524;
 }
 
-html, body {
+html {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Reduce motion for users who prefer it & helps iOS performance */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .glass {

@@ -17,7 +17,10 @@ export const FloatingPetals: React.FC = () => {
 
   useEffect(() => {
     const colors = ['#d4b896', '#e6d5b8', '#c9a96e', '#f5ebe0'];
-    const newPetals = Array.from({ length: 30 }).map((_, i) => ({
+    // Reduce count on mobile/iOS to prevent GPU overload that causes sections to vanish
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const petalCount = isMobile ? 10 : 20;
+    const newPetals = Array.from({ length: petalCount }).map((_, i) => ({
       id: i,
       x: Math.random() * 100,
       size: Math.random() * 8 + 8,
@@ -31,12 +34,12 @@ export const FloatingPetals: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-40">
+    <div className="absolute inset-0 pointer-events-none overflow-hidden z-40">
       {petals.map((petal) => (
         <motion.div
           key={petal.id}
           className="absolute"
-          style={{ color: petal.color }}
+          style={{ color: petal.color, willChange: 'transform, opacity' }}
           initial={{
             x: `${petal.x}vw`,
             y: '-10vh',

@@ -11,7 +11,7 @@ export const Hero: React.FC = () => {
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
-    <div ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden bg-brand-ivory/50">
+    <div ref={containerRef} className="relative flex items-center justify-center overflow-hidden bg-brand-ivory/50" style={{ height: '100dvh', minHeight: '100vh' }}>
 
       {/* Background Image with Parallax & Elegant Overlay */}
       <motion.div
@@ -19,8 +19,8 @@ export const Hero: React.FC = () => {
         style={{ y: y1, scale }}
       >
         <img
-          src="/IMG_6940.JPG.jpeg"
-          alt="Samadhi and Madhawa"
+          src="/WhatsApp Image 2026-09-30 at 00.18.49.jpeg"
+          alt="Kavisha and Dhananjaya"
           className="w-full h-full object-cover opacity-90"
           style={{ objectPosition: 'center 20%' }}
         />
@@ -45,6 +45,10 @@ export const Hero: React.FC = () => {
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.8 }}
           className="flex flex-col items-center"
         >
+          <span className="text-black uppercase tracking-[0.4em] sm:tracking-[0.6em] text-xs sm:text-sm font-bold mb-4 sm:mb-6 block drop-shadow-lg font-sans -translate-y-16 sm:translate-y-0">
+            The Celebration of Love
+          </span>
+
           {/* Subtle top decoration */}
           <div className="flex items-center gap-3 mb-6 sm:mb-8">
             <div className="h-[1px] w-12 sm:w-16 bg-gradient-to-l from-brand-beige-deep/60 to-transparent" />
@@ -52,25 +56,21 @@ export const Hero: React.FC = () => {
             <div className="h-[1px] w-12 sm:w-16 bg-gradient-to-r from-brand-beige-deep/60 to-transparent" />
           </div>
 
-          <span className="text-brand-beige-deep uppercase tracking-[0.4em] sm:tracking-[0.6em] text-xs sm:text-sm font-medium mb-6 sm:mb-10 block drop-shadow-sm font-sans">
-            The Celebration of Love
-          </span>
-
           <div className="relative mb-8 sm:mb-12 w-full flex justify-center">
             {/* Soft glow behind text for contrast and magical feel */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[140%] bg-white/40 blur-[50px] sm:blur-[80px] rounded-full pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[140%] bg-white/70 blur-[50px] sm:blur-[80px] rounded-full pointer-events-none" />
 
-            <h1 className="relative text-6xl sm:text-[7rem] lg:text-[9.5rem] font-display text-stone-800 leading-[1.1] sm:leading-[0.9] drop-shadow-sm">
-              Samadhi <br className="sm:hidden" />
+            <h1 className="relative text-6xl sm:text-[7rem] lg:text-[9.5rem] font-display text-stone-900 leading-[1.1] sm:leading-[0.9] drop-shadow-md">
+              Kavisha <br className="sm:hidden" />
               <span className="text-brand-beige-deep italic font-light mx-2 sm:mx-6 text-5xl sm:text-[6rem] lg:text-[8rem] inline-block -translate-y-2 sm:-translate-y-6">&</span>
               <br className="sm:hidden" />
-              Madhawa
+              Dhananjaya
             </h1>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-12 sm:mb-16">
             <div className="hidden sm:block h-[1px] w-20 bg-gradient-to-r from-transparent to-brand-beige-deep/40" />
-            <p className="text-[1.1rem] sm:text-2xl font-serif italic text-stone-700 tracking-wide px-4 text-center max-w-xl leading-relaxed drop-shadow-[0_2px_4px_rgba(255,255,255,0.5)]">
+            <p className="text-[1.1rem] sm:text-2xl font-serif italic text-stone-900 font-semibold tracking-wide px-4 text-center max-w-xl leading-relaxed drop-shadow-md">
               Together with our families, we joyfully invite you to join us
             </p>
             <div className="hidden sm:block h-[1px] w-20 bg-gradient-to-l from-transparent to-brand-beige-deep/40" />
@@ -83,7 +83,7 @@ export const Hero: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-white/60 to-transparent pointer-events-none" />
               <span className="relative text-[16px] sm:text-3xl font-serif text-brand-beige-deep tracking-[0.2em] sm:tracking-[0.4em] font-medium drop-shadow-sm flex items-center gap-2 sm:gap-3 whitespace-nowrap">
                 <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-brand-gold flex-shrink-0" />
-                19 . 09 . 2026
+                29 . 10 . 2026
                 <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-brand-gold flex-shrink-0" />
               </span>
             </div>
@@ -95,7 +95,7 @@ export const Hero: React.FC = () => {
       <div className="absolute left-6 sm:left-10 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-6 mix-blend-multiply opacity-70">
         <div className="w-[1px] h-24 bg-gradient-to-b from-transparent to-brand-beige-deep/50" />
         <p className="writing-mode-vertical text-[11px] uppercase tracking-[0.6em] text-brand-beige-deep font-semibold font-sans">
-          Senuri Grand Castello • Divulapitiya
+          Tree of Life Nature Resort • Kandy
         </p>
         <div className="w-[1px] h-24 bg-gradient-to-t from-transparent to-brand-beige-deep/50" />
       </div>
@@ -103,7 +103,7 @@ export const Hero: React.FC = () => {
       <div className="absolute right-6 sm:right-10 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-6 mix-blend-multiply opacity-70">
         <div className="w-[1px] h-24 bg-gradient-to-b from-transparent to-brand-beige-deep/50" />
         <p className="writing-mode-vertical text-[11px] uppercase tracking-[0.6em] text-brand-beige-deep font-semibold font-sans rotate-180">
-          Save the Date • September 2026
+          Save the Date • October 2026
         </p>
         <div className="w-[1px] h-24 bg-gradient-to-t from-transparent to-brand-beige-deep/50" />
       </div>

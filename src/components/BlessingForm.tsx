@@ -12,15 +12,13 @@ interface BlessingData {
 export function BlessingForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { register, handleSubmit, reset, formState: { errors } } = useForm<BlessingData>();
-  const scriptUrl = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL as string | undefined;
+  const scriptUrl = 'https://script.google.com/macros/s/AKfycbzbKYTP9NfF8UAgqvlNmaEFsuYJZM0BuLyLQ--nCNMINUN2CFevMqhw0v9z0bOKt-Je9w/exec';
 
   const onSubmit = async (data: BlessingData) => {
     setIsSubmitting(true);
 
     try {
-      if (!scriptUrl) {
-        throw new Error('Google Apps Script URL is not configured.');
-      }
+
 
       const payload = new FormData();
       payload.append('sheet', 'WISH');
